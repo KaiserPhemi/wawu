@@ -1,0 +1,12 @@
+{
+  "name": "wawu",
+  "version": "1.0.0",
+  "description": "A search engine",
+  "main": "index.js",
+  "repository": "git@github.com:KaiserPhemi/wawu.git",
+  "author": "Oluwafemi Akinwa <andela-oakinwa@users.noreply.github.com>",
+  "license": "MIT",
+  "script": {
+    
+  }
+}
