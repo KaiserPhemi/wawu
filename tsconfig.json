@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["es2015", "dom"],
+    "experimentalDecorators": true,                
+    "jsx": "react",
+    "sourceMap": true,                   
+    "typeRoots":["node_modules/@types"]
+  },
+  "files":["client"],
+  "exclude":["node_modules"]
+}
+

@@ -3,7 +3,7 @@ import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: './template/index.html',
+  template: './client/index.html',
   filename: 'index.html',
   inject: 'body'
 });
@@ -15,7 +15,7 @@ export default {
   entry: [
     'babel-polyfill',
     'webpack-hot-middleware/client?reload=true', // Handles reload if HMR fails
-    path.join(__dirname, '/client/Index.jsx')
+    path.join(__dirname, '/client/index.tsx')
   ],
   output: {
     path: path.join(__dirname, '/dist'),
