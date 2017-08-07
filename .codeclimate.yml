@@ -1,0 +1,38 @@
+engines:
+  csslint:
+    enabled: true
+    checks:
+      important:
+        enabled: false
+      box-sizing:
+        enabled: false
+  duplication:
+    enabled: false
+  eslint:
+    enabled: true
+    config:
+      languages:
+      - javascript
+      extensions:
+      - .js
+      - .jsx
+      - .ts
+      - .tsx
+    checks:
+      import/no-unresolved:
+        enabled: false
+  fixme:
+    enabled: true
+ratings:
+  paths:
+  - "**.css"
+  - "**.js"
+  - "**.jsx"
+  - "**.ts"
+  - "**.tsx"
+  - "**.module"
+exclude_paths:
+- node_modules/
+- coverage/
+- docs/
+- db/
