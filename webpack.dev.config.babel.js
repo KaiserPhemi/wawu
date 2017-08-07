@@ -14,16 +14,16 @@ export default {
   externals: {},
   entry: [
     'babel-polyfill',
-    'webpack-hot-middleware/client?reload=true', // Handles reload if HMR fails
-    path.join(__dirname, '/client/index.tsx')
+    'webpack-hot-middleware/client?reload=true',
+    path.resolve(__dirname, 'client/index')
   ],
   output: {
-    path: path.join(__dirname, '/dist'),
+    path: path.join(__dirname, './dist'),
     publicPath: '/',
     filename: 'bundle.js'
   },
   devServer: {
-    contentBase: './client'
+    contentBase: path.resolve(__dirname, 'client')
   },
   stats: {
     warnings: true,
@@ -43,20 +43,18 @@ export default {
   ],
   module: {
     loaders: [
-      {
-        test: /.jsx?$/,
-        include: path.join(__dirname, 'client'),
-        exclude: /node_modules/,
-        loader: ['react-hot-loader', 'babel-loader']
-      },
-      {
-        test: /\.s?css$/,
-        loader: ['style-loader', 'css-loader', 'sass-loader']
-      }
+      { test: /\.tsx?$/, include: path.join(__dirname, 'client'), loaders: ['ts-loader', 'tslint-loader'] },
+      { test: /\.(js|jsx)$/, include: path.join(__dirname, 'client'), exclude: /node_modules/, loader: ['react-hot-loader', 'babel-loader'] },
+      { test: /\.s?css$/, loaders: ['style-loader', 'css-loader', 'sass-loader'] },
+      { test: /\.(jpe?g|png|gif|svg|jpg|otf)$/i, loaders: [ 'file-loader', 'image-webpack-loader' ] },
+      { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file-loader' },
+      { test: /\.(woff|woff2)$/, loader: 'url?prefix=font/&limit=5000' },
+      { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream' },
+      { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml' }
     ]
   },
   resolve: {
-    extensions: [' ', '.js', '.jsx']
+    extensions: [' ', '.js', '.jsx', '.ts', '.tsx']
   },
   node: {
     net: 'empty',

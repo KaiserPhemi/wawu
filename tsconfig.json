@@ -7,7 +7,7 @@
     "sourceMap": true,                   
     "typeRoots":["node_modules/@types"]
   },
-  "files":["client"],
+  "files":["client/index.tsx"],
   "exclude":["node_modules"]
 }
 
